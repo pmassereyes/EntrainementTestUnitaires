@@ -13,7 +13,7 @@ public class Prestation {
         this.idPrestation = idPrestation;
         this.nomPrestation = nomPrestation;
     }
-    public void ajouterSoin(Soin) {
+    public void ajouterSoin(Soin soin) {
     }
 
     public ArrayList<Soin> getLesSoins() {
