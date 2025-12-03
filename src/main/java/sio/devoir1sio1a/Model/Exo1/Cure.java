@@ -10,7 +10,11 @@ public class Cure extends Prestation
 
     @Override
     public double getPrix() {
-        return super.getPrix();
+        double total = 0;
+        for (Soin soin : getLesSoins()) {
+            total += soin.getPrixSoin();
+        }
+        return total - tauxRemboursement;
     }
     @Override
     public String getInfos(){

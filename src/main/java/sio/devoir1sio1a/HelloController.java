@@ -25,11 +25,11 @@ public class HelloController implements Initializable {
     @FXML
     private TableView tvPrestations;
     @FXML
-    private TableColumn tcNumeroPrestation;
+    private TableColumn<Prestation,Integer> tcNumeroPrestation;
     @FXML
-    private TableColumn tcLibellePrestation;
+    private TableColumn<Prestation, String> tcLibellePrestation;
     @FXML
-    private TableColumn tcPrixPrestation;
+    private TableColumn<Prestation,Double> tcPrixPrestation;
 
     @Override
     public void initialize(URL location, ResourceBundle resources)
@@ -37,7 +37,7 @@ public class HelloController implements Initializable {
 
         // Jeu d'essais à décommenter une fois les classes créées
 
-        /*lesPrestations = new ArrayList<>();
+        lesPrestations = new ArrayList<>();
         Prestation prestation1 = new Prestation(1,"Santé");
         Prestation prestation2 = new Prestation(2,"Remise en forme");
         Cure cure1 = new Cure(3,"Bien-être",30);
@@ -63,9 +63,18 @@ public class HelloController implements Initializable {
         weekEnd3.ajouterSoin(soin5);weekEnd3.ajouterSoin(soin6);weekEnd3.ajouterSoin(soin7);
         lesPrestations.add(prestation1);lesPrestations.add(prestation2);
         lesPrestations.add(cure1);lesPrestations.add(cure2);
-        lesPrestations.add(weekEnd1);lesPrestations.add(weekEnd2);lesPrestations.add(weekEnd3);*/
+        lesPrestations.add(weekEnd1);lesPrestations.add(weekEnd2);lesPrestations.add(weekEnd3);
 
         // A vous de jouer
+        tcNumeroPrestation.setCellValueFactory(new PropertyValueFactory<>("idPrestation"));
+        tcLibellePrestation.setCellValueFactory(cellData ->
+                new SimpleStringProperty(cellData.getValue().getInfos())
+        );
+        tcPrixPrestation.setCellValueFactory(new PropertyValueFactory<>("prix"));
+        Collections.sort(lesPrestations);
+        tvPrestations.setItems(FXCollections.observableArrayList(lesPrestations));
+
+
 
 
     }

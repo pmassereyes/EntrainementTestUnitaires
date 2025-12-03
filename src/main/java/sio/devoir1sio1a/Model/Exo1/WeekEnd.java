@@ -13,7 +13,19 @@ public class WeekEnd extends Prestation
     }
     @Override
     public double getPrix(){
-        return super.getPrix();
+        double total = 0;
+        for (Soin soin : getLesSoins()){
+            total += soin.getPrixSoin();
+        }
+        if (this.typeChambre =="Mer"){
+            return  total += 200;
+        }
+        else if (this.typeChambre =="Jardin"){
+            return  total += 140;
+        }
+        else {
+            return  total += 125;
+        }
     }
     // A vous de jouer
 }

@@ -3,7 +3,7 @@ package sio.devoir1sio1a.Model.Exo1;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Prestation implements IInfos, Comparable {
+public class Prestation implements IInfos, Comparable<Prestation>, Serializable {
 
     private int idPrestation;
     private String nomPrestation;
@@ -14,6 +14,7 @@ public class Prestation implements IInfos, Comparable {
     public Prestation(int idPrestation, String nomPrestation) {
         this.idPrestation = idPrestation;
         this.nomPrestation = nomPrestation;
+        this.lesSoins = new ArrayList<>();
     }
     public void ajouterSoin(Soin soin) {
         lesSoins.add(soin);
@@ -33,12 +34,13 @@ public class Prestation implements IInfos, Comparable {
 
     @Override
     public String getInfos() {
-        return "";
+        return nomPrestation;
     }
 
     @Override
-    public int compareTo(Object o) {
-        return 0;
+    public int compareTo(Prestation o) {
+
+        return Double.compare(o.getPrix(), this.getPrix());
     }
 
 
