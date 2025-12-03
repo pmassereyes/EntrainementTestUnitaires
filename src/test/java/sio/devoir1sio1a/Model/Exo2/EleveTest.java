@@ -35,12 +35,20 @@ class EleveTest {
     void nbLeconsReglees()
     {
         // Cas n°1 : 3 leçons réglées
-
+        int actual = eleve.nbLeconsReglees();
+        int expected = 3;
+        assertEquals(expected,actual);
 
 
 
         // Cas n°2 : 0 leçon réglée
         // Modifier les leçons 1, 4 et 5 afin qu'elles ne soient pas réglées
+        lecon1.setReglee(false);
+        lecon4.setReglee(false);
+        lecon5.setReglee(false);
+        actual = eleve.nbLeconsReglees();
+        expected = 0;
+        assertEquals(expected,actual);
 
 
 

@@ -35,9 +35,13 @@ public class Eleve
     // Cette méthode retourne le nombre de leçons réglées
     public int nbLeconsReglees()
     {
-        // A vous de jouer
-
-        return 0;
+        int nbLeconsReglees = 0;
+        for(Lecon lecon : lesLecons){
+            if (lecon.isReglee()){
+                nbLeconsReglees++;
+            }
+        }
+        return nbLeconsReglees;
     }
 
     // Cette méthode retourne la leçon
@@ -45,8 +49,12 @@ public class Eleve
     // S'il y a des ex aequo, on retourne toujours la première
     public Lecon leconLaPlusLongue()
     {
-        // A vous de jouer
-
-        return null;
+        Lecon autreLecon = null;
+        for (Lecon lecon : lesLecons){
+            if (lecon.getNbKm() > autreLecon.getNbKm() ){
+                autreLecon = lecon;
+            }
+        }
+        return autreLecon;
     }
 }

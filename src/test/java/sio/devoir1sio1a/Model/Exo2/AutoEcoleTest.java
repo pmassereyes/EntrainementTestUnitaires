@@ -39,9 +39,16 @@ class AutoEcoleTest {
     void calculerChiffreAffaires()
     {
         // Cas n°1 : 3 leçons réglées : 17.56 * 3
+        double actual = autoEcole.calculerChiffreAffaires();
+        double expected = 52.68;
+        assertEquals(expected,actual);
 
 
         // Cas n°2 : 0 leçon réglée
+        AutoEcole autoEcoleVide = new AutoEcole("Vide");
+        actual = autoEcoleVide.calculerChiffreAffaires();
+        expected = 0;
+        assertEquals(expected,actual);
 
     }
 
@@ -49,9 +56,14 @@ class AutoEcoleTest {
     void nbKmsVehicule()
     {
         // Cas n°1 : 3 leçons pour l'immatriculation : UH-463-17 : 56 + 47 + 49
+        int actual = autoEcole.nbKmsVehicule("UH-463-17");
+        int expected = 152;
+        assertEquals(expected,actual);
 
 
         // Cas n°2 : 0 leçon pour l'immatriculation : AA-AAA-AA
-
+        actual = autoEcole.nbKmsVehicule("AA-AAA-AA");
+        expected = 0;
+        assertEquals(expected,actual);
     }
 }

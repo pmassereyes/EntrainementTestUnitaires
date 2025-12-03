@@ -24,19 +24,30 @@ public class AutoEcole
     // Ce dernier se détermine de la façon suivante
     // ca = nombre de leçons réglées * 17.56
     // Le prix d'une leçon est de 17.56
-    public double calculerChiffreAffaires()
-    {
-        // A vous de jouer
-
-        return 0;
+    public double calculerChiffreAffaires() {
+        double total = 0;
+        for (Eleve eleve : lesEleves) {
+            for (Lecon lecon : eleve.getLesLecons()) { // utilise le getter
+                if (lecon.isReglee()) {
+                    total += 17.56;
+                }
+            }
+        }
+        return Math.round(total * 100.0) / 100.0;
     }
 
     // Cette méthode calcule le nombre total de Kms
     // uniquement pour l'immatriculation du véhicule passée en paramètre.
     public int nbKmsVehicule(String uneImmat)
     {
-        // A vous de jouer
-
-        return 0;
+        int nbKms = 0;
+        for (Eleve eleve : lesEleves) {
+            for (Lecon lecon : eleve.getLesLecons()) {
+                if (lecon.getImmatriculation().equals(uneImmat)) {
+                    nbKms += lecon.getNbKm();
+                }
+            }
+        }
+        return nbKms;
     }
 }
